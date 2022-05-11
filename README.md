@@ -1,7 +1,6 @@
 # monorepo-nix-template
 
-A simple demonstration of writing a top-level `flake.nix` that delegates to inner `default.nix` (flake alike). This pattern useful in monorepos with many sub-projects written in different programming languages.
-
+A simple demonstration of writing a top-level `flake.nix` that delegates to inner `default.nix` (flake alike). This pattern is useful in monorepos with many sub-projects written in different programming languages.
 
 Files of interest:
 
