@@ -12,6 +12,7 @@ Files of interest:
 Features
 
 - Haskell app statically links to Rust library
+- Works on Linux and macOS (M1)
 - IDE experience works for both languages through HLS.
 - Autoformat by treefmt
 
