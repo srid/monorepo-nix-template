@@ -1,0 +1,18 @@
+[package]
+name = "rusty"
+version = "0.1.0"
+edition = "2018"
+resolver = "2"
+
+[dependencies]
+libc = "0.2.125"
+
+[lib]
+name = "rusty"
+crate-type = ["staticlib"] # , "cdylib"]
+
+[package.metadata.nix]
+app = true
+build = true
+library = true
+systems = ["x86_64-linux", "aarch64-linux"]
