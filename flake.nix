@@ -17,9 +17,10 @@
   outputs = inputs:
     inputs.flake-utils.lib.eachDefaultSystem
       (system:
-        let 
+        let
           pkgs = inputs.nixpkgs.legacyPackages.${system};
-        in rec {
+        in
+        rec {
           # Project "flakes" are also parametrized by inputs and system.
           projects = {
             haskell = import ./haskell { inherit inputs system; };
@@ -32,16 +33,13 @@
             projects.haskell.apps;
           devShells =
             projects.haskell.devShells
-            // projects.rust.devShells
-            // {
-              default =
-                (import ./nix/mergeDevShells.nix { inherit pkgs; })
-                  (pkgs.lib.attrsets.attrValues (projects.haskell.devShells // projects.rust.devShells));
-            };
+            // projects.rust.devShells;
           # Default derivations.
+          defaultPackage =
+            inputs.self.packages.${system}.haskell;
           devShell =
-            inputs.self.devShells.${system}.default;
-          defaultPackage = inputs.self.packages.${system}.haskell;
+            (import ./nix/mergeDevShells.nix { inherit pkgs; })
+              (pkgs.lib.attrsets.attrValues devShells);
         }
       )
     // {
