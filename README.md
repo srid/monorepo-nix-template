@@ -42,3 +42,7 @@ Just build it,
 ```
 nix build
 ```
+
+## Alternative approaches
+
+- https://github.com/hercules-ci/flake-modules-core 
