@@ -45,4 +45,4 @@ nix build
 
 ## Alternative approaches
 
-- https://github.com/hercules-ci/flake-modules-core 
+- https://github.com/hercules-ci/flake-parts
